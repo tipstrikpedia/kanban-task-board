@@ -1,0 +1,3 @@
+# Ignore OS files and node modules if needed
+.DS_Store
+node_modules/

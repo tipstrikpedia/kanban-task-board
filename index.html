@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Task Board</title>
+    <link rel="stylesheet" href="style.css?v=1" />
+  </head>
+  <body data-theme="light">
+    <header>
+      <h1>Kanban Task Board</h1>
+      <div class="toggle-container">
+        <label for="theme-toggle">Dark Mode</label>
+        <input type="checkbox" id="theme-toggle" />
+      </div>
+    </header>
+    <main>
+      <section class="add-task">
+        <h2>Add New Task</h2>
+        <form id="task-form">
+          <input
+            type="text"
+            id="task-title"
+            placeholder="Task title"
+            required
+          />
+          <textarea
+            id="task-desc"
+            placeholder="Task description"
+            rows="3"
+          ></textarea>
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+      <section class="board">
+        <div class="column" data-status="todo">
+          <h3>To Do</h3>
+          <div class="task-list" id="todo-list"></div>
+        </div>
+        <div class="column" data-status="inprogress">
+          <h3>In Progress</h3>
+          <div class="task-list" id="inprogress-list"></div>
+        </div>
+        <div class="column" data-status="done">
+          <h3>Done</h3>
+          <div class="task-list" id="done-list"></div>
+        </div>
+      </section>
+    </main>
+    <!-- Edit Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-modal" class="close-button">&times;</span>
+        <h2>Edit Task</h2>
+        <form id="edit-form">
+          <input type="text" id="edit-title" required />
+          <textarea id="edit-desc" rows="3"></textarea>
+          <select id="edit-status">
+            <option value="todo">To Do</option>
+            <option value="inprogress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js?v=1"></script>
+  </body>
+</html>
